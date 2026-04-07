@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klelia Peterson — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3ED;
+    --warm-white: #FDFAF6;
+    --ink: #1C1A16;
+    --ink-soft: #3D3A33;
+    --ink-muted: #7A7468;
+    --accent: #B85C38;
+    --accent-light: #E8C4B4;
+    --accent-pale: #F5EAE4;
+    --sage: #6B7C6E;
+    --sage-light: #D4DDD6;
+    --line: rgba(28,26,22,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--line);
+    padding: 0 clamp(1.5rem, 6vw, 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+  }
+
+  nav { display: flex; gap: 2rem; }
+  nav a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--warm-white);
+    padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 6vw, 5rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: 80vh;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--warm-white);
+    padding: 12px 28px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-ghost {
+    color: var(--ink-muted);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--accent); }
+
+  /* Hero right side */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-align: right;
+    max-width: 140px;
+    line-height: 1.4;
+  }
+
+  .stat-card.accent-card {
+    background: var(--accent);
+    border-color: transparent;
+  }
+  .stat-card.accent-card .stat-number,
+  .stat-card.accent-card .stat-label { color: var(--warm-white); }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1.5rem;
+  }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  /* ── SERVICES ── */
+  #teenused { background: var(--warm-white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .service-item {
+    background: var(--warm-white);
+    padding: 2rem 2rem 2.5rem;
+    transition: background 0.2s;
+  }
+  .service-item:hover { background: var(--accent-pale); }
+
+  .service-num {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  .service-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    background: var(--accent-pale);
+    color: var(--accent);
+    border-radius: 1px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── EXPERIENCE ── */
+  #kogemus { background: var(--cream); }
+
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+
+  .exp-meta {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    padding-top: 3px;
+  }
+
+  .exp-period {
+    font-weight: 500;
+    color: var(--accent);
+    font-size: 13px;
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .exp-org {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* ── SKILLS ── */
+  #oskused { background: var(--ink); }
+  #oskused h2 { color: var(--warm-white); }
+  #oskused .section-number { color: var(--accent-light); }
+  #oskused .section-header { border-bottom-color: rgba(255,255,255,0.1); }
+
+  .skills-cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .skill-group-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .skill-pill {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    padding: 6px 14px;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .skill-pill:hover {
+    background: rgba(184,92,56,0.25);
+    border-color: rgba(184,92,56,0.5);
+  }
+
+  /* ── ABOUT ── */
+  #minust { background: var(--warm-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text p:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .values-list { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0.5rem; }
+
+  .value-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .value-marker {
+    width: 20px;
+    height: 20px;
+    background: var(--accent-pale);
+    border: 1px solid var(--accent-light);
+    border-radius: 1px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .value-marker svg { width: 10px; height: 10px; }
+
+  .value-text { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
+  .value-text strong { color: var(--ink); font-weight: 500; display: block; margin-bottom: 2px; font-size: 14px; }
+
+  /* ── CONTACT ── */
+  #kontakt {
+    background: var(--accent);
+    text-align: center;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
+  }
+
+  .contact-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+  }
+
+  #kontakt h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 400;
+    color: var(--warm-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .contact-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 4px;
+  }
+
+  .contact-value {
+    font-size: 15px;
+    color: var(--warm-white);
+    font-weight: 400;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 1.5rem clamp(1.5rem, 6vw, 5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .skills-cols { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav { display: none; }
+    .services-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .contact-details { gap: 2rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.25s; }
+  .fade-up:nth-child(3) { animation-delay: 0.4s; }
+  .fade-up:nth-child(4) { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Klelia Peterson</div>
+  <nav>
+    <a href="#teenused">Teenused</a>
+    <a href="#kogemus">Kogemus</a>
+    <a href="#oskused">Oskused</a>
+    <a href="#minust">Minust</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow fade-up">Virtuaalne assistent · Kommunikatsioon</div>
+    <h1 class="fade-up">Sisu, mis <em>räägib.</em> Töö, mis saab tehtud.</h1>
+    <p class="hero-desc fade-up">Kommunikatsiooni- ja kogukonnajuht 11+ aasta kaugtöö kogemusega. Aitan ettevõtetel ja organisatsioonidel oma sõnumit selgelt edasi anda ja projekte kenasti lõpuni viia.</p>
+    <div class="cta-row fade-up">
+      <a href="#kontakt" class="btn-primary">Võta ühendust</a>
+      <a href="#teenused" class="btn-ghost">Vaata teenuseid →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-card">
+      <div class="stat-number">11+</div>
+      <div class="stat-label">aastat kaugtöö kogemust</div>
+    </div>
+    <div class="stat-card accent-card">
+      <div class="stat-number">6</div>
+      <div class="stat-label">valdkonda, kus saan sind aidata</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">pühendumus igale projektile</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEENUSED -->
+<section id="teenused">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2>Mida pakun</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-num">01</div>
+      <div class="service-name">Sotsiaalmeedia haldus</div>
+      <div class="service-desc">Sisu planeerimine, kirjutamine ja avaldamine. Kogukonna haldus ja suhtlus. Regulaarne ja järjepidev kohalolek sinu kanalites.</div>
+      <div class="service-tags">
+        <span class="tag">Facebook</span>
+        <span class="tag">Instagram</span>
+        <span class="tag">Meta Business</span>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">02</div>
+      <div class="service-name">Sisukirjutamine</div>
+      <div class="service-desc">Postitused, artiklid, uudiskirjad, reklaamtekstid, kodulehe tekstid. Selge ja sihtgrupile sobiv sõnum.</div>
+      <div class="service-tags">
+        <span class="tag">Uudiskirjad</span>
+        <span class="tag">Smaily</span>
+        <span class="tag">Õppematerjalid</span>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">03</div>
+      <div class="service-name">Projektide ja kampaaniate juhtimine</div>
+      <div class="service-desc">Projekti vedamine algusest lõpuni. Töövoogude koostamine, tähtaegade jälgimine, koordineerimine erinevate osapooltega.</div>
+      <div class="service-tags">
+        <span class="tag">Kampaaniad</span>
+        <span class="tag">Töövood</span>
+        <span class="tag">Koordineerimine</span>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">04</div>
+      <div class="service-name">Ürituskorraldus</div>
+      <div class="service-desc">Kontseptsioonist teostuseni. Nii veebi- kui pärisüritused. Kogukonnakaasamine, elava seina lahendused, osalejate haldus.</div>
+      <div class="service-tags">
+        <span class="tag">Veebiüritused</span>
+        <span class="tag">Konverentsid</span>
+        <span class="tag">Kogukonnakaasamine</span>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">05</div>
+      <div class="service-name">Koduleht ja e-pood</div>
+      <div class="service-desc">WordPress ja WooCommerce haldus ja uuendamine. Sisu lisamine, lihtsamad kohandused. Koduleht, mis töötab ja näeb hea välja.</div>
+      <div class="service-tags">
+        <span class="tag">WordPress</span>
+        <span class="tag">WooCommerce</span>
+        <span class="tag">HTML/CSS</span>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-num">06</div>
+      <div class="service-name">Kujundus ja materjalid</div>
+      <div class="service-desc">Canva kujundused, turundus- ja õppematerjalid, visuaalne sisu sotsiaalmeediasse. Professionaalne ja brändiga kooskõlas.</div>
+      <div class="service-tags">
+        <span class="tag">Canva</span>
+        <span class="tag">Photoshop</span>
+        <span class="tag">Fotograafia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KOGEMUS -->
+<section id="kogemus">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2>Töökogemus</h2>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2023 — praegu</div>
+        Tallinn / kaugtöö
+      </div>
+      <div>
+        <div class="exp-title">Kommunikatsiooni- ja kogukonnajuht</div>
+        <div class="exp-org">SA Kiusamisvaba Kool</div>
+        <div class="exp-desc">Sotsiaalmeedia haldus (FB, Instagram), uudiskirjad (Smaily), ürituste korraldamine kontseptsioonist teostuseni, kampaaniate vedamine, materjalide loomine, koduleht (WordPress) ja e-poe (WooCommerce) haldus, kujundused (Canva), koostöö loovagentuuridega, AI tööriistade kasutamine.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">2013 — 2023</div>
+        Kaugtöö
+      </div>
+      <div>
+        <div class="exp-title">Programmi koordinaator · Mentor · Vabatahtlike koordinaator</div>
+        <div class="exp-org">SA Kiusamisvaba Kool ja muud organisatsioonid</div>
+        <div class="exp-desc">Koolituste koostamine ja läbiviimine, kogukonna kaasamine kooli kontekstis, vabatahtlike koordineerimine, programmi koordineerimine. Pikaajaline kaugtöö kogemus — iseseisvus ja distsipliin on igapäevane töönorm.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Varasem</div>
+        Tallinn
+      </div>
+      <div>
+        <div class="exp-title">Assistent</div>
+        <div class="exp-org">Kinnisvarafirma · Advokaadibüroo</div>
+        <div class="exp-desc">Pikaajaline assitendi kogemus — büroohaldus, suhtlus klientidega, dokumentatsioon, ajakava haldamine, korraldus. Tugev aluskogemus professionaalseks VA tööks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OSKUSED -->
+<section id="oskused">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2>Tööriistad ja oskused</h2>
+  </div>
+  <div class="skills-cols">
+    <div>
+      <div class="skill-group-title">Kommunikatsioon ja sisu</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Sotsiaalmeedia haldus</span>
+        <span class="skill-pill">Sisukirjutamine</span>
+        <span class="skill-pill">Toimetamine</span>
+        <span class="skill-pill">Uudiskirjad</span>
+        <span class="skill-pill">Smaily</span>
+        <span class="skill-pill">Reklaamtekstid</span>
+        <span class="skill-pill">Artiklid</span>
+        <span class="skill-pill">Õppematerjalid</span>
+        <span class="skill-pill">Kogukonnakaasamine</span>
+      </div>
+      <div class="skill-group-title">Kujundus ja visuaal</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">Photoshop</span>
+        <span class="skill-pill">Fotograafia</span>
+        <span class="skill-pill">Turundusvisuaalid</span>
+        <span class="skill-pill">Elav sein</span>
+      </div>
+    </div>
+    <div>
+      <div class="skill-group-title">Tehniline</div>
+      <div class="skill-tags">
+        <span class="skill-pill">WordPress</span>
+        <span class="skill-pill">WooCommerce</span>
+        <span class="skill-pill">HTML / CSS</span>
+        <span class="skill-pill">Meta Business Suite</span>
+        <span class="skill-pill">AI tööriistad</span>
+        <span class="skill-pill">Google Workspace</span>
+      </div>
+      <div class="skill-group-title">Projektijuhtimine ja korraldus</div>
+      <div class="skill-tags">
+        <span class="skill-pill">Projektijuhtimine</span>
+        <span class="skill-pill">Ürituskorraldus</span>
+        <span class="skill-pill">Kampaaniad</span>
+        <span class="skill-pill">Töövood</span>
+        <span class="skill-pill">Koordineerimine</span>
+        <span class="skill-pill">Koolituste läbiviimine</span>
+        <span class="skill-pill">11+ a kaugtöö</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINUST -->
+<section id="minust">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2>Minust</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Olen Klelia — kommunikatsiooni- ja kogukonnajuht, kes usub, et hea töö tähendab nii asjade ärategemist kui inimeste kuulamist.</p>
+      <p>Elan Tallinna külje all, töötan kaugtööl juba üle 11 aasta ja tean omast käest, mida tähendab olla usaldusväärne, iseseisev ja täpne — ilma igapäevase järelevalveta.</p>
+      <p>Südamelähedased teemad on lapsed, haridus ja kogukond. Olen vabatahtlikuna korraldanud üritusi haigetele lastele ja aidanud puudust kannatavatele lastele jõulurõõmu tuua. See annab mu tööle tähenduse ka väljaspool tööaega.</p>
+    </div>
+    <div>
+      <div class="values-list">
+        <div class="value-item">
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-text"><strong>Usaldusväärne partner</strong>Tähtaegadest kinni pidamine ja aus suhtlus on minu jaoks enesestmõistetavad.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-text"><strong>Mitmekülgne kogemus</strong>Assistendist kommunikatsioonijuhini — oskan näha nii detaili kui suurt pilti.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-text"><strong>Päris inimene, päris töö</strong>Nelja lapse ema, kes teab, mida tähendab tõhusalt ja süsüdamega töötada.</div>
+        </div>
+        <div class="value-item">
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-text"><strong>Asukoht pole takistus</strong>Kaugtöö on minu igapäev — Tallinn, Tartu, Pärnu või kaugemal, töö saab tehtud.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="contact-eyebrow">Võtame ühendust</div>
+  <h2>Räägime, kuidas<br>saan sind aidata.</h2>
+  <p class="contact-sub">Kui sul on projekt, kampaania, sotsiaalmeedia kanal või ülesandeid, mis vajavad usaldusväärset kätt — kirjuta mulle.</p>
+  <div class="contact-details">
+    <div class="contact-item">
+      <div class="contact-label">Nimi</div>
+      <div class="contact-value">Klelia Peterson</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Asukoht</div>
+      <div class="contact-value">Tallinn / kaugtöö üle Eesti</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Valdkonnad</div>
+      <div class="contact-value">Kommunikatsioon · VA · Projektid</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Klelia Peterson</div>
+  <div class="footer-copy">© 2025 · Kõik õigused kaitstud</div>
+</footer>
+
+</body>
+</html>
