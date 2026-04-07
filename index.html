@@ -9,17 +9,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #F7F0F3;
-    --warm-white: #FDF8FA;
-    --ink: #1C1A16;
-    --ink-soft: #3D3A33;
-    --ink-muted: #7A6870;
-    --accent: #A0617A;
-    --accent-light: #E8C8D4;
-    --accent-pale: #F5EAF0;
-    --sage: #6B7C6E;
-    --sage-light: #D4DDD6;
-    --line: rgba(28,22,26,0.12);
+    --cream: #E5DFD6;
+    --warm-white: #F2EDE6;
+    --ink: #2C2820;
+    --ink-soft: #4A4238;
+    --ink-muted: #7A7268;
+    --accent: #AE6965;
+    --accent-light: #D1A9A5;
+    --accent-pale: #F0E4E3;
+    --sage: #7A816C;
+    --sage-light: #C8D4C0;
+    --line: rgba(44,40,32,0.12);
   }
 
   html { scroll-behavior: smooth; }
@@ -119,10 +119,19 @@
     margin-bottom: 2.5rem;
   }
 
+  .hero-desc .dot {
+    color: var(--accent);
+    font-size: 1.6em;
+    font-weight: 700;
+    margin: 0 4px;
+    vertical-align: middle;
+    line-height: 0;
+  }
+
   .cta-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
 
   .btn-primary {
-    background: var(--ink);
+    background: var(--accent);
     color: var(--warm-white);
     padding: 12px 28px;
     border-radius: 2px;
@@ -133,7 +142,7 @@
     text-decoration: none;
     transition: background 0.2s;
   }
-  .btn-primary:hover { background: var(--accent); }
+  .btn-primary:hover { background: var(--ink); }
 
   .btn-ghost {
     color: var(--ink-muted);
@@ -356,10 +365,10 @@
   }
 
   /* ── SKILLS ── */
-  #oskused { background: var(--ink); }
-  #oskused h2 { color: var(--warm-white); }
-  #oskused .section-number { color: var(--accent-light); }
-  #oskused .section-header { border-bottom-color: rgba(255,255,255,0.1); }
+  #oskused { background: #7A816C; }
+  #oskused h2 { color: #F2EDE6; }
+  #oskused .section-number { color: #C8D4C0; }
+  #oskused .section-header { border-bottom-color: rgba(255,255,255,0.2); }
 
   .skills-cols {
     display: grid;
@@ -386,9 +395,9 @@
   .skill-pill {
     font-size: 13px;
     font-weight: 300;
-    color: rgba(255,255,255,0.85);
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.13);
+    color: var(--warm-white);
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
     padding: 6px 14px;
     border-radius: 2px;
     letter-spacing: 0.02em;
@@ -396,8 +405,8 @@
   }
 
   .skill-pill:hover {
-    background: rgba(184,92,56,0.25);
-    border-color: rgba(184,92,56,0.5);
+    background: rgba(255,255,255,0.28);
+    border-color: rgba(255,255,255,0.5);
   }
 
   /* ── ABOUT ── */
@@ -453,7 +462,7 @@
 
   /* ── CONTACT ── */
   #kontakt {
-    background: var(--accent);
+    background: #AE6965;
     text-align: center;
     padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 6vw, 5rem);
   }
@@ -583,8 +592,8 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow fade-up">Virtuaalne assistent · Kommunikatsioon</div>
-    <h1 class="fade-up">Sisu, mis <em>räägib.</em> Töö, mis saab tehtud.</h1>
-    <p class="hero-desc fade-up">Kommunikatsiooni- ja kogukonnajuht &nbsp;·&nbsp; 11+ aastat kaugtöö kogemust &nbsp;·&nbsp; Aitan ettevõtetel ja organisatsioonidel oma sõnumit selgelt edasi anda ja projekte algusest lõpuni läbi viia.</p>
+    <h1 class="fade-up">Sisu, mis räägib <em>lugu.</em> Töö, mis saab tehtud.</h1>
+    <p class="hero-desc fade-up">Kommunikatsiooni- ja kogukonnajuht <span class="dot">·</span> 11+ aastat kaugtöö kogemust <span class="dot">·</span> Aitan ettevõtetel ja organisatsioonidel oma sõnumit selgelt edasi anda ja projekte algusest lõpuni läbi viia.</p>
     <div class="cta-row fade-up">
       <a href="#kontakt" class="btn-primary">Võta ühendust</a>
       <a href="#teenused" class="btn-ghost">Vaata teenuseid →</a>
@@ -721,7 +730,6 @@
         <span class="skill-pill">Sisukirjutamine</span>
         <span class="skill-pill">Toimetamine</span>
         <span class="skill-pill">Uudiskirjad</span>
-        <span class="skill-pill">Smaily</span>
         <span class="skill-pill">Reklaamtekstid</span>
         <span class="skill-pill">Artiklid</span>
         <span class="skill-pill">Õppematerjalid</span>
@@ -729,7 +737,6 @@
       </div>
       <div class="skill-group-title">Kujundus ja visuaal</div>
       <div class="skill-tags">
-        <span class="skill-pill">Canva</span>
         <span class="skill-pill">Photoshop</span>
         <span class="skill-pill">Fotograafia</span>
         <span class="skill-pill">Turundusvisuaalid</span>
@@ -741,6 +748,7 @@
         <span class="skill-pill">WordPress</span>
         <span class="skill-pill">WooCommerce</span>
         <span class="skill-pill">HTML / CSS</span>
+        <span class="skill-pill">Canva</span>
         <span class="skill-pill">Smaily</span>
         <span class="skill-pill">Meta Business Suite</span>
         <span class="skill-pill">AI tööriistad</span>
@@ -775,19 +783,19 @@
     <div>
       <div class="values-list">
         <div class="value-item">
-          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#A0617A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#AE6965" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="value-text"><strong>Usaldusväärne partner</strong>Tähtaegadest kinni pidamine ja aus suhtlus on minu jaoks enesestmõistetavad.</div>
         </div>
         <div class="value-item">
-          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#A0617A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#AE6965" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="value-text"><strong>Mitmekülgne kogemus</strong>Assistendist kommunikatsioonijuhini — oskan näha nii detaili kui suurt pilti.</div>
         </div>
         <div class="value-item">
-          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#A0617A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#AE6965" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="value-text"><strong>Kaasamõtleja ja tegutseja</strong>Toon töösse südame ja pühendumuse — tulemus peab olema hea nii sulle kui mulle.</div>
         </div>
         <div class="value-item">
-          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#A0617A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="value-marker"><svg viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7 8,3" stroke="#AE6965" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="value-text"><strong>Asukoht pole takistus</strong>Kaugtöö on minu igapäev — Tallinn, Tartu, Pärnu või kaugemal, töö saab tehtud.</div>
         </div>
       </div>
@@ -807,7 +815,7 @@
     </div>
     <div class="contact-item">
       <div class="contact-label">E-post</div>
-      <div class="contact-value"><a href="/cdn-cgi/l/email-protection#ea9c83989e9f8b8b868b999983999e8f849e81868f86838baa8d878b8386c4898587" style="color:var(--warm-white);text-decoration:none;"><span class="__cf_email__" data-cfemail="a1d7c8d3d5d4c0c0cdc0d2d2c8d2d5c4cfd5cacdc4cdc8c0e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a></div>
+      <div class="contact-value">virtuaalassistentklelia&#64;gmail.com</div>
     </div>
     <div class="contact-item">
       <div class="contact-label">Asukoht</div>
@@ -818,4 +826,13 @@
       <div class="contact-value">Kommunikatsioon · VA · Projektid</div>
     </div>
   </div>
-</
+
+</section>
+
+<footer>
+  <div class="footer-logo">Klelia Peterson</div>
+  <div class="footer-copy">© 2025 · Kõik õigused kaitstud</div>
+</footer>
+
+</body>
+</html>
